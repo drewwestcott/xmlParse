@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +14,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="xmlParsing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="showPodDetail" id="BYZ-38-t0r" customClass="ViewController" customModule="xmlParsing" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,6 +23,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Podcast" translatesAutoresizingMaskIntoConstraints="NO" id="2E8-oc-Ot6">
+                                <rect key="frame" x="16" y="20" width="343" height="180"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yS6-fU-J8t">
                                 <rect key="frame" x="0.0" y="200" width="375" height="467"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -30,11 +34,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EwA-5Y-3oz" id="E3J-au-i3w">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hrh-uv-bnh">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -52,18 +56,92 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="yS6-fU-J8t" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.7" id="3Vf-bG-qpx"/>
+                            <constraint firstItem="yS6-fU-J8t" firstAttribute="top" secondItem="2E8-oc-Ot6" secondAttribute="bottom" id="7HF-xe-9z0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2E8-oc-Ot6" secondAttribute="trailing" id="RfA-5c-c2f"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yS6-fU-J8t" secondAttribute="bottom" id="awf-oI-Eed"/>
                             <constraint firstAttribute="trailing" secondItem="yS6-fU-J8t" secondAttribute="trailing" id="bWg-s3-7CS"/>
                             <constraint firstItem="yS6-fU-J8t" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ezt-KY-Nc3"/>
+                            <constraint firstItem="2E8-oc-Ot6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ogG-Ir-kvw"/>
+                            <constraint firstItem="2E8-oc-Ot6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="yQ2-fX-kbU"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="yS6-fU-J8t" id="12V-yC-Xfc"/>
+                        <segue destination="E8V-S3-MHH" kind="popoverPresentation" identifier="playerDetail" popoverAnchorView="yS6-fU-J8t" id="ozc-tz-I2z">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="115.59220389805098"/>
         </scene>
+        <!--PlayerVC-->
+        <scene sceneID="VSo-iG-P4z">
+            <objects>
+                <viewController storyboardIdentifier="playerBoard" id="E8V-S3-MHH" customClass="PlayerVC" customModule="xmlParsing" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OOh-qz-tLw"/>
+                        <viewControllerLayoutGuide type="bottom" id="jXB-lA-cBZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gFn-iI-H8o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Podcast" translatesAutoresizingMaskIntoConstraints="NO" id="Pw2-Ca-69n">
+                                <rect key="frame" x="16" y="20" width="343" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="zi8-Rs-9cQ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pod Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhP-qg-d3G">
+                                <rect key="frame" x="16" y="208" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xzx-vN-dc8">
+                                <rect key="frame" x="16" y="237" width="343" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Z9L-dn-x2H"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Pw2-Ca-69n" firstAttribute="leading" secondItem="gFn-iI-H8o" secondAttribute="leadingMargin" id="4qw-cf-7UY"/>
+                            <constraint firstItem="QhP-qg-d3G" firstAttribute="leading" secondItem="gFn-iI-H8o" secondAttribute="leadingMargin" id="CZK-XO-0AH"/>
+                            <constraint firstItem="xzx-vN-dc8" firstAttribute="leading" secondItem="gFn-iI-H8o" secondAttribute="leadingMargin" id="FqL-OV-tq8"/>
+                            <constraint firstItem="Pw2-Ca-69n" firstAttribute="trailing" secondItem="gFn-iI-H8o" secondAttribute="trailingMargin" id="bAY-Vc-a53"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xzx-vN-dc8" secondAttribute="trailing" id="gdS-6X-igA"/>
+                            <constraint firstItem="QhP-qg-d3G" firstAttribute="top" secondItem="Pw2-Ca-69n" secondAttribute="bottom" constant="8" id="hWU-R2-Ipe"/>
+                            <constraint firstItem="Pw2-Ca-69n" firstAttribute="top" secondItem="OOh-qz-tLw" secondAttribute="bottom" id="r2H-DQ-Rxz"/>
+                            <constraint firstItem="QhP-qg-d3G" firstAttribute="trailing" secondItem="gFn-iI-H8o" secondAttribute="trailingMargin" id="sm1-bk-lRb"/>
+                            <constraint firstItem="xzx-vN-dc8" firstAttribute="top" secondItem="QhP-qg-d3G" secondAttribute="bottom" constant="8" id="ubU-71-TBW"/>
+                            <constraint firstItem="xzx-vN-dc8" firstAttribute="top" secondItem="QhP-qg-d3G" secondAttribute="bottom" constant="8" id="y2A-Dt-m5b"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="JCm-QK-896" appends="YES" id="efL-kI-x9O"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="playerDetail" destination="xzx-vN-dc8" id="eyC-ag-xuh"/>
+                        <outlet property="playerImage" destination="Pw2-Ca-69n" id="xhh-uc-UPL"/>
+                        <outlet property="playerTitle" destination="QhP-qg-d3G" id="GkL-s1-S7K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9TA-Bg-rQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="JCm-QK-896"/>
+            </objects>
+            <point key="canvasLocation" x="909.60000000000002" y="104.7976011994003"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Podcast" width="156" height="180"/>
+    </resources>
 </document>

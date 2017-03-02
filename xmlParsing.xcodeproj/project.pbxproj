@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0423EA1E687D67004E1CA5 /* PlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0423E91E687D67004E1CA5 /* PlayerVC.swift */; };
 		3A66F80F1E6739F9002AC07B /* CastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66F80E1E6739F9002AC07B /* CastCell.swift */; };
+		3A66F8131E6767B8002AC07B /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66F8121E6767B8002AC07B /* Podcast.swift */; };
 		3A816B781E65F022003E6722 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A816B771E65F022003E6722 /* AppDelegate.swift */; };
 		3A816B7A1E65F022003E6722 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A816B791E65F022003E6722 /* ViewController.swift */; };
 		3A816B7D1E65F022003E6722 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A816B7B1E65F022003E6722 /* Main.storyboard */; };
@@ -66,7 +68,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3A0423E91E687D67004E1CA5 /* PlayerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerVC.swift; sourceTree = "<group>"; };
 		3A66F80E1E6739F9002AC07B /* CastCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastCell.swift; sourceTree = "<group>"; };
+		3A66F8121E6767B8002AC07B /* Podcast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
 		3A816B741E65F022003E6722 /* xmlParsing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xmlParsing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A816B771E65F022003E6722 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A816B791E65F022003E6722 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,8 +114,17 @@
 			children = (
 				3A816B791E65F022003E6722 /* ViewController.swift */,
 				3A66F80E1E6739F9002AC07B /* CastCell.swift */,
+				3A0423E91E687D67004E1CA5 /* PlayerVC.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		3A66F8111E6767A7002AC07B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3A66F8121E6767B8002AC07B /* Podcast.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		3A816B6B1E65F021003E6722 = {
@@ -137,6 +150,7 @@
 		3A816B761E65F022003E6722 /* xmlParsing */ = {
 			isa = PBXGroup;
 			children = (
+				3A66F8111E6767A7002AC07B /* Model */,
 				3A66F8101E6739FF002AC07B /* View */,
 				3A816B771E65F022003E6722 /* AppDelegate.swift */,
 				3A816B7B1E65F022003E6722 /* Main.storyboard */,
@@ -318,7 +332,9 @@
 			files = (
 				3A816B7A1E65F022003E6722 /* ViewController.swift in Sources */,
 				3A66F80F1E6739F9002AC07B /* CastCell.swift in Sources */,
+				3A66F8131E6767B8002AC07B /* Podcast.swift in Sources */,
 				3A816B781E65F022003E6722 /* AppDelegate.swift in Sources */,
+				3A0423EA1E687D67004E1CA5 /* PlayerVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
