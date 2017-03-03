@@ -110,18 +110,56 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKY-zC-brK">
+                                <rect key="frame" x="163" y="367" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="u4v-4v-VvM"/>
+                                    <constraint firstAttribute="width" constant="50" id="voY-xv-d0s"/>
+                                </constraints>
+                                <state key="normal" image="Play"/>
+                                <connections>
+                                    <action selector="playButtonTapped:" destination="E8V-S3-MHH" eventType="touchUpInside" id="nQS-7b-Rpm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyX-YM-Xy3">
+                                <rect key="frame" x="16" y="441" width="343" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="2mS-AF-qYW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIE-vb-Jz8">
+                                <rect key="frame" x="313" y="617" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="Rty-DA-zlg"/>
+                                    <constraint firstAttribute="height" constant="30" id="t5O-0h-5Pw"/>
+                                </constraints>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="exTapped:" destination="E8V-S3-MHH" eventType="touchUpInside" id="nWL-Qi-0DE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="NyX-YM-Xy3" secondAttribute="trailing" id="1Co-qb-jdQ"/>
                             <constraint firstItem="Pw2-Ca-69n" firstAttribute="leading" secondItem="gFn-iI-H8o" secondAttribute="leadingMargin" id="4qw-cf-7UY"/>
+                            <constraint firstItem="rKY-zC-brK" firstAttribute="centerX" secondItem="gFn-iI-H8o" secondAttribute="centerX" id="9oa-JK-ZlF"/>
                             <constraint firstItem="QhP-qg-d3G" firstAttribute="leading" secondItem="gFn-iI-H8o" secondAttribute="leadingMargin" id="CZK-XO-0AH"/>
+                            <constraint firstItem="nIE-vb-Jz8" firstAttribute="trailing" secondItem="gFn-iI-H8o" secondAttribute="trailingMargin" id="Fnc-bX-JHi"/>
                             <constraint firstItem="xzx-vN-dc8" firstAttribute="leading" secondItem="gFn-iI-H8o" secondAttribute="leadingMargin" id="FqL-OV-tq8"/>
+                            <constraint firstItem="NyX-YM-Xy3" firstAttribute="leading" secondItem="gFn-iI-H8o" secondAttribute="leadingMargin" id="U6k-Ys-V4a"/>
+                            <constraint firstItem="NyX-YM-Xy3" firstAttribute="top" secondItem="rKY-zC-brK" secondAttribute="bottom" constant="24" id="WfK-qe-0MJ"/>
                             <constraint firstItem="Pw2-Ca-69n" firstAttribute="trailing" secondItem="gFn-iI-H8o" secondAttribute="trailingMargin" id="bAY-Vc-a53"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xzx-vN-dc8" secondAttribute="trailing" id="gdS-6X-igA"/>
+                            <constraint firstItem="jXB-lA-cBZ" firstAttribute="top" secondItem="nIE-vb-Jz8" secondAttribute="bottom" constant="20" id="h7U-cG-k8Q"/>
                             <constraint firstItem="QhP-qg-d3G" firstAttribute="top" secondItem="Pw2-Ca-69n" secondAttribute="bottom" constant="8" id="hWU-R2-Ipe"/>
                             <constraint firstItem="Pw2-Ca-69n" firstAttribute="top" secondItem="OOh-qz-tLw" secondAttribute="bottom" id="r2H-DQ-Rxz"/>
                             <constraint firstItem="QhP-qg-d3G" firstAttribute="trailing" secondItem="gFn-iI-H8o" secondAttribute="trailingMargin" id="sm1-bk-lRb"/>
+                            <constraint firstItem="rKY-zC-brK" firstAttribute="top" secondItem="xzx-vN-dc8" secondAttribute="bottom" constant="30" id="tLI-Zi-qGe"/>
                             <constraint firstItem="xzx-vN-dc8" firstAttribute="top" secondItem="QhP-qg-d3G" secondAttribute="bottom" constant="8" id="ubU-71-TBW"/>
                             <constraint firstItem="xzx-vN-dc8" firstAttribute="top" secondItem="QhP-qg-d3G" secondAttribute="bottom" constant="8" id="y2A-Dt-m5b"/>
                         </constraints>
@@ -130,6 +168,8 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="downloadingLabel" destination="NyX-YM-Xy3" id="K7q-QG-9hh"/>
+                        <outlet property="playButton" destination="rKY-zC-brK" id="Jd3-aQ-Jfl"/>
                         <outlet property="playerDetail" destination="xzx-vN-dc8" id="eyC-ag-xuh"/>
                         <outlet property="playerImage" destination="Pw2-Ca-69n" id="xhh-uc-UPL"/>
                         <outlet property="playerTitle" destination="QhP-qg-d3G" id="GkL-s1-S7K"/>
@@ -142,6 +182,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Play" width="50" height="50"/>
         <image name="Podcast" width="156" height="180"/>
     </resources>
 </document>

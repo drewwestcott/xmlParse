@@ -6,6 +6,8 @@
 //  Copyright © 2017 Drew Westcott. All rights reserved.
 //
 // Images() podcast by Jamison Wieser from the Noun Project
+//          pause by Gautam Arora from the Noun Project
+//          play by Arunkumar from the Noun Project
 
 import UIKit
 
@@ -16,15 +18,18 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDelegate, 
 	let url = URL(string: "http://www.bbc.co.uk/programmes/p002w6r2/episodes/downloads.rss")
 	
 	var selectedPodcast : Podcast?
-	var episodeFound = false
+//	var episodeFound = false
 	var episodeTitle = String()
 	var episodeDescription = String()
 	var episodeLink = String()
-	var epTitle = String()
-	var epNext = String()
-	var currentElement = ""
-	var elementName = ""
-	var counter = 0
+	var episodeType = String()
+	var episodeURL = String()
+	
+//	var epTitle = String()
+//	var epNext = String()
+//	var currentElement = ""
+//	var elementName = ""
+//	var counter = 0
 	
 	@IBOutlet weak var tableView: UITableView!
 	
@@ -54,6 +59,16 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDelegate, 
 
 	func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
 
+		if elementName == "enclosure" {
+			if let type = attributeDict["type"] {
+				self.episodeType = type
+			}
+			if let theURL = attributeDict["url"] {
+				self.episodeURL = theURL
+			}
+			print(self.episodeType)
+		}
+
 
 	}
 	
@@ -76,9 +91,12 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDelegate, 
 		
 		if elementName == "item" {
 			
-			let pod = Podcast(title: episodeTitle, link: episodeLink, description: episodeDescription)
+			let pod = Podcast(title: episodeTitle, link: episodeLink, description: episodeDescription, downloadURL: episodeURL, type: episodeType)
+			print(self.episodeURL)
+
 			Podcasts.append(pod)
 		}
+		
 		self.foundCharacters = ""
 	
 	}
